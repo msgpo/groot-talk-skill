@@ -39,7 +39,7 @@ class GrootTalkSkill(MycroftSkill):
         self.speak_groot()
         self.speak_dialog('context', data={"result": ""}, expect_response=True)
 
-    @intent_handler(not IntentBuilder('GrootStopIntent').require('GrootChat').require('IamKeyword').
+    @intent_handler(IntentBuilder('GrootStopIntent').require('GrootChat').require('IamKeyword').
                     require('GrootKeyword').build())
     @removes_context('GrootChat')
     def handle_stop_groot_intent(self, message):
