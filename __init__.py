@@ -31,7 +31,6 @@ class GrootTalkSkill(MycroftSkill):
                     require('GrootKeyword').build())
     @adds_context('GrootChat')
     def handle_groot_talk_intent(self, message):
-        # self.speak_groot()
         groot_file_number = random.randint(1, 4)
         play_groot_file = str(groot_file_number) + ".mp3"
         if not self.groot_talk:
