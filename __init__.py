@@ -38,7 +38,7 @@ class GrootTalkSkill(MycroftSkill):
 
     @intent_handler(IntentBuilder('GrootChatIntent').require('GrootChat').build())
     @adds_context('GrootChat')
-    def handle_groot_talk_intent(self, message):
+    def handle_groot_chat_intent(self, message):
         self.speak_groot()
         self.speak_dialog('context', data={"result": ""}, expect_response=True)
 
