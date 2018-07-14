@@ -15,9 +15,6 @@ LOGGER = getLogger(__name__)
 
 
 class GrootTalkSkill(MycroftSkill):
-    """
-    A Skill to control playback on a Kodi instance via the json-rpc interface.
-    """
     def __init__(self):
         super(GrootTalkSkill, self).__init__(name="GrootTalkSkill")
 
