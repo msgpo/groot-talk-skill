@@ -38,7 +38,7 @@ class GrootTalkSkill(MycroftSkill):
             play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
             self.speak_dialog('context', data={"result": ""}, expect_response=True)
 
-    @intent_handler(IntentBuilder('GrootChatIntent').require('GrootChat').build())
+    @intent_handler(IntentBuilder('GrootChatIntent').require('GrootChat').require('SaySomething').build())
     @adds_context('GrootChat')
     def handle_groot_chat_intent(self, message):
         groot_file_number = random.randint(1, 4)
