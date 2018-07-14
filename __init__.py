@@ -46,7 +46,7 @@ class GrootTalkSkill(MycroftSkill):
         play_groot_file = str(groot_file_number) + ".mp3"
         if self.groot_talk:
             self.speak_dialog('context', data={"result": ""}, expect_response=True)
-            play_mp3(join(dirname(__file__), "soundclips", play_groot_file)
+            play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
 
     @intent_handler(IntentBuilder('GrootStopIntent').require('GrootChat').require('IamKeyword').
                     require('GrootKeyword').build())
