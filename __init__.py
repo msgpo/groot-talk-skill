@@ -24,26 +24,36 @@ class GrootTalkSkill(MycroftSkill):
     def speak_groot(self):
         groot_file_Number = random.randint(1, 4)
         play_groot_file = str(groot_file_Number) + ".mp3"
-        self.process = play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
+        play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
 
     @intent_handler(IntentBuilder('GrootTalkIntent').require("TalkKeyword").require('LikeKeyword').
                     require('GrootKeyword').build())
     @adds_context('GrootChat')
     def handle_groot_talk_intent(self, message):
-        self.speak_groot()
+        # self.speak_groot()
+        groot_file_Number = random.randint(1, 4)
+        play_groot_file = str(groot_file_Number) + ".mp3"
+        play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
         self.speak_dialog('context', data={"result": ""}, expect_response=True)
 
     @intent_handler(IntentBuilder('GrootChatIntent').require('GrootChat').build())
     @adds_context('GrootChat')
     def handle_groot_chat_intent(self, message):
-        self.speak_groot()
+#        self.speak_groot()
+        groot_file_Number = random.randint(1, 4)
+        play_groot_file = str(groot_file_Number) + ".mp3"
+        play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
+
         self.speak_dialog('context', data={"result": ""}, expect_response=True)
 
     @intent_handler(IntentBuilder('GrootStopIntent').require('GrootChat').require('IamKeyword').
                     require('GrootKeyword').build())
     @removes_context('GrootChat')
     def handle_stop_groot_intent(self, message):
-        self.speak_groot()
+#        self.speak_groot()
+        groot_file_Number = random.randint(1, 4)
+        play_groot_file = str(groot_file_Number) + ".mp3"
+        play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
         self.speak_dialog('context', data={"result": "canceled"}, expect_response=False)
 
     def stop(self):
