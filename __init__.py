@@ -9,7 +9,7 @@ from mycroft.util import play_mp3
 import random
 
 _author__ = 'PCWii'
-# Release - 20180714
+# Release - 20180819
 
 LOGGER = getLogger(__name__)
 
