@@ -25,8 +25,7 @@ class GrootTalkSkill(MycroftSkill):
     def speak_groot(self):
         groot_file_Number = random.randint(1, 4)
         play_groot_file = str(groot_file_Number) + ".mp3"
-        # play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
-        self.speak("We Are Groot!")
+        play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
 
     @intent_handler(IntentBuilder('GrootTalkIntent').require("TalkKeyword").require('LikeKeyword').
                     require('GrootKeyword').build())
@@ -36,8 +35,8 @@ class GrootTalkSkill(MycroftSkill):
         play_groot_file = str(groot_file_number) + ".mp3"
         if not self.groot_talk:
             self.groot_talk = True
-            play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
-            self.speak_dialog('context', data={"result": ""}, expect_response=True)
+            # play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
+            self.speak_dialog('context', data={"result": "I am Groot!"}, expect_response=True)
 
     @intent_handler(IntentBuilder('GrootChatIntent').require('GrootChat').require('SpeakInput').build())
     @adds_context('GrootChat')
@@ -45,8 +44,8 @@ class GrootTalkSkill(MycroftSkill):
         groot_file_number = random.randint(1, 4)
         play_groot_file = str(groot_file_number) + ".mp3"
         if self.groot_talk:
-            self.speak_dialog('context', data={"result": ""}, expect_response=True)
-            play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
+            self.speak_dialog('context', data={"result": "I am Groot"}, expect_response=True)
+            # play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
 
     @intent_handler(IntentBuilder('GrootStopIntent').require('GrootChat').require('IamKeyword').
                     require('GrootKeyword').build())
@@ -55,7 +54,7 @@ class GrootTalkSkill(MycroftSkill):
         groot_file_number = random.randint(1, 4)
         play_groot_file = str(groot_file_number) + ".mp3"
         if self.groot_talk:
-            play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
+            # play_mp3(join(dirname(__file__), "soundclips", play_groot_file))
             self.speak_dialog('context', data={"result": "canceled"}, expect_response=False)
         self.groot_talk = True
 
